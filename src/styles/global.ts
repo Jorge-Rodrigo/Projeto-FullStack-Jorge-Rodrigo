@@ -20,5 +20,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-white:#ffffff;
         --color-main: #1d3557;
         --color-blue:#14ffd9;
+        --color-blue2:#192c56;
+        --color-red:#fe0000;
     }
 `;

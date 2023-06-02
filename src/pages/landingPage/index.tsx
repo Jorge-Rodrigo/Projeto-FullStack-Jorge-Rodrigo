@@ -19,7 +19,7 @@ export const LandingPage = () => {
           </p>
           <div>
             <div>
-              <p>ja tem uma conta?</p>
+              <p>Ja tem uma conta?</p>
               <Link to={"/login"}>Entrar</Link>
             </div>
             <div>

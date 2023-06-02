@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const MainDiv = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 50px 0;
 
   h1 {
     color: var(--color-white);
@@ -13,19 +14,26 @@ export const MainDiv = styled.div`
     justify-content: center;
     gap: 15px;
     padding-bottom: 50px;
+    padding-top: 100px;
     font-size: 200%;
     span {
       color: var(--color-blue);
     }
   }
   p {
-    color: var(--color-blue);
+    color: var(--color-white);
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    width: 75%;
+    width: 65%;
     font-size: 22px;
-    padding-top: 20px;
+    border: 2px solid var(--color-blue);
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 25px;
+    :hover {
+      color: var(--color-blue);
+    }
   }
   div {
     padding-top: 25px;
@@ -57,7 +65,7 @@ export const MainDiv = styled.div`
         border: 2px solid var(--color-blue);
         color: var(--color-white);
         background-color: transparent;
-        font-size: 20px;
+        font-size: 18px;
         :hover {
           background-color: var(--color-white);
           color: var(--color-main);
@@ -70,7 +78,7 @@ export const MainDiv = styled.div`
 export const Container = styled.div`
   background-color: var(--color-main);
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
   div:first-child {
     max-width: 1100px;
