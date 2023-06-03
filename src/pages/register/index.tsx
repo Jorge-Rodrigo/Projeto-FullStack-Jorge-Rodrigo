@@ -7,6 +7,7 @@ import { userSchema } from "../../schemas/userSchemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "../../components/input";
 import { Container, RegisterForm } from "./style";
+import { Link } from "react-router-dom";
 
 export const RegisterPage = () => {
   const { register: registerUser } = useContext(UserContext);
@@ -90,6 +91,7 @@ export const RegisterPage = () => {
             )}
             <div>
               <button>Enviar</button>
+              <Link to={"/login"}>Ja tem uma conta?</Link>
             </div>
           </Form>
         </RegisterForm>

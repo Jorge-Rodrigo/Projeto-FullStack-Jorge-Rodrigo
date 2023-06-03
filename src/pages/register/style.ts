@@ -20,6 +20,7 @@ export const RegisterForm = styled.section`
     margin: 0 auto;
     font-size: 20px;
     color: var(--color-white);
+    padding: 20px 0;
   }
 
   span {
@@ -34,6 +35,7 @@ export const RegisterForm = styled.section`
     justify-content: center;
     align-items: center;
     padding-top: 30px;
+    flex-direction: column;
     button {
       width: 65%;
       height: 56px;
@@ -48,6 +50,16 @@ export const RegisterForm = styled.section`
       }
       @media (min-width: 700px) {
         width: 45%;
+      }
+    }
+    a {
+      padding-top: 25px;
+      color: var(--color-white);
+      font-size: 20px;
+      text-decoration: none;
+      :hover {
+        color: var(--color-blue);
+        text-decoration: underline;
       }
     }
   }

@@ -18,6 +18,9 @@ export const notifyError = (message: string) => {
   if (message === "Email already exists") {
     msg = "Email ja esta cadastrado";
   }
+  if (message === "Invalid credentials") {
+    msg = "Email ou Senha Incorretos";
+  }
   toast.error(`${msg}`, {
     position: "top-left",
     autoClose: 1000,

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { userReturn, userSchema } from "../schemas/userSchemas";
+import { userLogin, userReturn, userSchema } from "../schemas/userSchemas";
 
 export interface iUserContextProps {
   children: React.ReactNode;
@@ -8,6 +8,7 @@ export interface iUserContextProps {
 export interface iUserContext {
   user: tUserReponse | null;
   register: (dataItem: iUserFormRequest) => void;
+  login: (dataItem: tUserLogin) => void;
 }
 
 export interface iUserFormRequest {
@@ -17,5 +18,10 @@ export interface iUserFormRequest {
   phoneNumber: string;
 }
 
+export interface iUserToken {
+  token: string;
+}
+
+export type tUserLogin = z.infer<typeof userLogin>;
 export type tUserRequest = z.infer<typeof userSchema>;
 export type tUserReponse = z.infer<typeof userReturn>;

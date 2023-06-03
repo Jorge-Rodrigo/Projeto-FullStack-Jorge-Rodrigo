@@ -20,6 +20,10 @@ export const FieldStyled = styled.fieldset`
     height: 45px;
     border-radius: 12px;
     padding: 10px;
+    outline: none;
+    :focus {
+      border: 2px solid var(--color-white);
+    }
     ::placeholder {
       color: var(--color-white);
     }
