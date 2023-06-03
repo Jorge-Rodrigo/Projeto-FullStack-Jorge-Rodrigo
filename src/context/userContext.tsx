@@ -15,12 +15,14 @@ export const UserContext = createContext({} as iUserContext);
 
 export const UserProvider = ({ children }: iUserContextProps) => {
   const [user, setUser] = useState<tUserReponse | null>(null);
+  const [loadingPage, setLoadingPage] = useState(true);
   const navigate = useNavigate();
 
+  const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
   useEffect(() => {
     async function getUser() {
-      const token = JSON.parse(`${localStorage.getItem("@TOKEN")}`);
       if (!token || token === "") {
+        setLoadingPage(false);
         return;
       }
       try {
@@ -31,18 +33,22 @@ export const UserProvider = ({ children }: iUserContextProps) => {
         }
       } catch (err) {
         localStorage.clear();
+      } finally {
+        setLoadingPage(false);
       }
     }
 
     getUser();
-  }, [user]);
+  }, [user, token]);
 
   async function login(dataItem: tUserLogin) {
     try {
       const { data } = await api.post<iUserToken>("login", dataItem);
-      localStorage.setItem("@TOKEN", JSON.stringify(data.token || null));
-      navigate("/home");
       notifySucess("Login feito com Sucesso!");
+      if (data) {
+        localStorage.setItem("@TOKEN", JSON.stringify(data.token || null));
+        navigate("/home");
+      }
     } catch (err: any) {
       notifyError(err.response.data.message);
     }
@@ -61,7 +67,9 @@ export const UserProvider = ({ children }: iUserContextProps) => {
   }
 
   return (
-    <UserContext.Provider value={{ user, register, login }}>
+    <UserContext.Provider
+      value={{ user, register, login, navigate, loadingPage }}
+    >
       {children}
     </UserContext.Provider>
   );

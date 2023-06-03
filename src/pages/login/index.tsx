@@ -10,7 +10,11 @@ import { useContext } from "react";
 import { UserContext } from "../../context/userContext";
 
 export const LoginPage = () => {
-  const { login } = useContext(UserContext);
+  const { login, user, navigate } = useContext(UserContext);
+
+  if (user) {
+    navigate("/home");
+  }
   const {
     register,
     handleSubmit,

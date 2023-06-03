@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { userLogin, userReturn, userSchema } from "../schemas/userSchemas";
+import { NavigateFunction } from "react-router-dom";
 
 export interface iUserContextProps {
   children: React.ReactNode;
@@ -9,6 +10,8 @@ export interface iUserContext {
   user: tUserReponse | null;
   register: (dataItem: iUserFormRequest) => void;
   login: (dataItem: tUserLogin) => void;
+  navigate: NavigateFunction;
+  loadingPage: boolean;
 }
 
 export interface iUserFormRequest {
