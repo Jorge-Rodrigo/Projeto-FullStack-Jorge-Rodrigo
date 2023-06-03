@@ -29,9 +29,9 @@ const userReturn = z.object({
   id: z.number(),
   fullName: z.string().max(150).min(4),
   email: z.string().email().max(45),
-  password: z.string().min(8).max(120),
   createdAt: z.string(),
   updatedAt: z.string(),
+  phoneNumber: z.string(),
   deletedAt: z.string().nullable(),
 });
 

@@ -22,5 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-blue:#14ffd9;
         --color-blue2:#192c56;
         --color-red:#fe0000;
+        --color-blue3:#8fb4be;
+        --color-purple:#7d6cbd;
     }
 `;
