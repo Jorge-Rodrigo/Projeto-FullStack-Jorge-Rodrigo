@@ -6,6 +6,13 @@ export const ModalMain = styled.main`
     text-align: center;
   }
   form {
+    span {
+      color: var(--color-red);
+      display: flex;
+      justify-content: center;
+      padding: 5px 0;
+      font-size: 17px;
+    }
     div {
       display: flex;
       justify-content: center;

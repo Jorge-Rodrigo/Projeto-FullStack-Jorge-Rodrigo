@@ -1,25 +1,37 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../context/userContext";
 import { ContactsContext } from "../../context/contactsContext";
 import { Container, MainStyled } from "./styles";
 import { AiOutlineUser } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { Modal } from "../../components/modal";
+import { tContactReponse } from "../../interfaces/contactsInterface";
+import { tUserReponse } from "../../interfaces/userInterfaces";
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
   const { contacts } = useContext(ContactsContext);
   const [modalOn, setModalOn] = useState(false);
   const [style, setStyle] = useState("");
+  const [info, setInfo] = useState<tContactReponse | tUserReponse | null>(null);
+  useEffect(() => {
+    contacts;
+  }, [contacts?.length, contacts]);
 
-  const activeModal = (style: string) => {
+  const activeModal = (
+    style: string,
+    info?: tContactReponse | tUserReponse | null
+  ) => {
     setStyle(style);
     setModalOn(true);
+    if (info) {
+      setInfo(info);
+    }
   };
 
   return (
     <>
-      {modalOn && <Modal setOff={setModalOn} style={style} />}
+      {modalOn && <Modal setOff={setModalOn} style={style} infoModal={info} />}
       <Container>
         <div>
           <MainStyled>
@@ -32,7 +44,7 @@ export const HomePage = () => {
                 {"  "}
                 Contacts
               </h1>
-              <div onClick={() => activeModal("Edit User")}>
+              <div onClick={() => activeModal("Edit User", user)}>
                 <p>{user?.fullName}</p>
                 <IconContext.Provider
                   value={{ size: "25px", color: "#14ffd9" }}
@@ -47,6 +59,7 @@ export const HomePage = () => {
               </button>
               <div>
                 <p>Seus contatos:</p>
+                {contacts?.length === 0 && <h3>Voce ainda não tem contatos</h3>}
                 <ul>
                   {contacts &&
                     contacts.map((contact) => (
@@ -60,7 +73,9 @@ export const HomePage = () => {
                           <p>Numero:</p>
                           <p>{contact.phoneNumber}</p>
                         </div>
-                        <button onClick={() => activeModal("Edit Contact")}>
+                        <button
+                          onClick={() => activeModal("Edit Contact", contact)}
+                        >
                           Editar
                         </button>
                       </li>

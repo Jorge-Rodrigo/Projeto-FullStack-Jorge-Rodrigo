@@ -8,6 +8,7 @@ const Input = ({
   id,
   register,
   disable,
+  value,
 }: iInputProps) => {
   return (
     <FieldStyled>
@@ -18,6 +19,7 @@ const Input = ({
         id={id}
         {...register}
         disabled={disable}
+        defaultValue={value}
       />
     </FieldStyled>
   );

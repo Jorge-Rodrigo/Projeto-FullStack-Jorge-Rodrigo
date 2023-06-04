@@ -8,6 +8,7 @@ export const MainStyled = styled.main`
     h1 {
       color: var(--color-white);
       font-size: 35px;
+
       :hover {
         color: var(--color-blue);
         span {
@@ -27,6 +28,10 @@ export const MainStyled = styled.main`
       border: 2px solid var(--color-blue);
       border-radius: 16px;
       height: 50px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+
       cursor: pointer;
       :hover {
         background-color: var(--color-main);
@@ -63,7 +68,7 @@ export const MainStyled = styled.main`
         width: 30%;
       }
       :hover {
-        background-color: transparent;
+        background-color: var(--color-blue4);
         border: 2px solid var(--color-white);
         color: var(--color-blue);
       }
@@ -79,6 +84,11 @@ export const MainStyled = styled.main`
           text-decoration: underline;
         }
       }
+      h3 {
+        color: var(--color-white);
+        font-size: 33px;
+        text-align: center;
+      }
       ul {
         display: flex;
         list-style: none;
@@ -86,7 +96,6 @@ export const MainStyled = styled.main`
         height: 400px;
         padding: 20px 15px;
         flex-direction: row;
-        justify-content: space-between;
         overflow-x: auto;
         gap: 15px;
 
@@ -114,6 +123,7 @@ export const MainStyled = styled.main`
             padding: 10px 0;
             font-size: 24px;
           }
+
           div {
             p:first-child {
               color: var(--color-blue3);

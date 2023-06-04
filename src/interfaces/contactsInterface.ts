@@ -1,5 +1,9 @@
 import { z } from "zod";
-import { contactReturn, contactSchema } from "../schemas/contactSchema";
+import {
+  contactReturn,
+  contactSchema,
+  updateContactSchema,
+} from "../schemas/contactSchema";
 
 export interface iContactsContextProps {
   children: React.ReactNode;
@@ -12,3 +16,4 @@ export interface iContactsContext {
 
 export type tContactRequest = z.infer<typeof contactSchema>;
 export type tContactReponse = z.infer<typeof contactReturn>;
+export type tContactUpdate = z.infer<typeof updateContactSchema>;

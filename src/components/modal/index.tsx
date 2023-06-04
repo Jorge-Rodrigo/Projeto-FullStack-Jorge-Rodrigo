@@ -4,7 +4,7 @@ import { ModalEditContact } from "./modalEditContact";
 import { ModalEditUser } from "./modalEditUser";
 import { MainDiv, ModalContainer, ModalMain } from "./style";
 
-export const Modal = ({ setOff, style }: iModalProps) => {
+export const Modal = ({ setOff, style, infoModal }: iModalProps) => {
   return (
     <ModalContainer>
       <MainDiv>
@@ -13,8 +13,8 @@ export const Modal = ({ setOff, style }: iModalProps) => {
             <button onClick={() => setOff(false)}>X</button>
           </div>
           {style === "Create Contact" && <ModalCreateContact />}
-          {style === "Edit Contact" && <ModalEditContact />}
-          {style === "Edit User" && <ModalEditUser />}
+          {style === "Edit Contact" && <ModalEditContact contact={infoModal} />}
+          {style === "Edit User" && <ModalEditUser user={infoModal} />}
         </ModalMain>
       </MainDiv>
     </ModalContainer>

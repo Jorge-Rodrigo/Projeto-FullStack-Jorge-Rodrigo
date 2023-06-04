@@ -14,4 +14,6 @@ const contactSchema = z.object({
     .refine(validator.isMobilePhone, "Coloque um numero valido"),
 });
 
-export { contactReturn, contactSchema };
+const updateContactSchema = contactSchema.partial();
+
+export { contactReturn, contactSchema, updateContactSchema };

@@ -22,7 +22,9 @@ export const GlobalStyle = createGlobalStyle`
         --color-blue:#14ffd9;
         --color-blue2:#192c56;
         --color-red:#fe0000;
+        --color-red2:#800000;
         --color-blue3:#8fb4be;
+        --color-blue4:#003471;
         --color-purple:#7d6cbd;
     }
 `;
