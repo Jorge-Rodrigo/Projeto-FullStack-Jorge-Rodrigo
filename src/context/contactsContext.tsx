@@ -78,8 +78,8 @@ export const ContactsProvider = ({ children }: iContactsContextProps) => {
       await api.patch<tContactReponse>(`contacts/${contactId}`, dataItem);
       const { data } = await api.get<tContactReponse[]>("contacts");
       setContacts(data);
-      setModalOn(false);
       notifySucess("Contato editado com sucesso!");
+      setModalOn(false);
     } catch (err: any) {
       notifyError(err.response.data.message);
     }
@@ -89,8 +89,10 @@ export const ContactsProvider = ({ children }: iContactsContextProps) => {
     try {
       api.defaults.headers.common.authorization = `Bearer ${token}`;
       await api.delete<tContactReponse>(`contacts/${contactId}`);
-      setModalOn(false);
+      const { data } = await api.get<tContactReponse[]>("contacts");
+      setContacts(data);
       notifySucess("Contato deletado com sucesso!");
+      setModalOn(false);
     } catch (err: any) {
       notifyError(err.response.data.message);
     }
