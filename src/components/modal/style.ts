@@ -28,12 +28,12 @@ export const ModalMain = styled.div`
     width: 50%;
   }
 
-  div:first-of-type {
+  .closeModal {
     display: flex;
     justify-content: flex-end;
     padding: 0 15px;
 
-    button:first-of-type {
+    button {
       padding: 8px 10px;
       font-size: 15px;
       font-weight: 700;

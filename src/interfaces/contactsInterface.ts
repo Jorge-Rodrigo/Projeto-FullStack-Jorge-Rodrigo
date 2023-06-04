@@ -7,6 +7,7 @@ export interface iContactsContextProps {
 
 export interface iContactsContext {
   contacts: tContactReponse[] | null | undefined;
+  createContact: (dataItem: tContactRequest) => void;
 }
 
 export type tContactRequest = z.infer<typeof contactSchema>;

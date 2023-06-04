@@ -25,7 +25,7 @@ export const ContactsProvider = ({ children }: iContactsContextProps) => {
       }
     }
     getContacts();
-  }, [setContacts]);
+  }, [setContacts, contacts]);
 
   async function createContact(dataItem: tContactRequest) {
     try {
@@ -37,7 +37,7 @@ export const ContactsProvider = ({ children }: iContactsContextProps) => {
     }
   }
   return (
-    <ContactsContext.Provider value={{ contacts }}>
+    <ContactsContext.Provider value={{ contacts, createContact }}>
       {children}
     </ContactsContext.Provider>
   );

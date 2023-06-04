@@ -10,7 +10,7 @@ export const FieldStyled = styled.fieldset`
   border: none;
   label {
     color: var(--color-white);
-    font-size: 16px;
+    font-size: 20px;
   }
   input {
     background-color: transparent;
@@ -21,10 +21,12 @@ export const FieldStyled = styled.fieldset`
     border-radius: 12px;
     padding: 10px;
     outline: none;
+    font-size: 20px;
     :focus {
       border: 2px solid var(--color-white);
     }
     ::placeholder {
+      font-size: 20px;
       color: var(--color-white);
     }
     @media (min-width: 700px) {

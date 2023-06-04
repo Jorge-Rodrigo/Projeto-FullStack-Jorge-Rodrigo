@@ -9,7 +9,7 @@ export const Modal = ({ setOff, style }: iModalProps) => {
     <ModalContainer>
       <MainDiv>
         <ModalMain>
-          <div>
+          <div className="closeModal">
             <button onClick={() => setOff(false)}>X</button>
           </div>
           {style === "Create Contact" && <ModalCreateContact />}
