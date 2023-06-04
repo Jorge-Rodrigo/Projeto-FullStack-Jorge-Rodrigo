@@ -6,8 +6,11 @@ import { tContactUpdate } from "../../../interfaces/contactsInterface";
 import { updateContactSchema } from "../../../schemas/contactSchema";
 import Form from "../../forms";
 import { ModalMain } from "./style";
+import { useContext } from "react";
+import { ContactsContext } from "../../../context/contactsContext";
 
 export const ModalEditContact = ({ contact }: ModalEditProps) => {
+  const { editContact, deleteContact } = useContext(ContactsContext);
   const {
     register,
     handleSubmit,
@@ -18,7 +21,7 @@ export const ModalEditContact = ({ contact }: ModalEditProps) => {
   });
 
   const onHandleSubmit: SubmitHandler<tContactUpdate> = (data) => {
-    console.log(data);
+    editContact(data, contact?.id);
     reset();
   };
   return (
@@ -55,7 +58,9 @@ export const ModalEditContact = ({ contact }: ModalEditProps) => {
         {errors.phoneNumber ? <span>{errors.phoneNumber.message}</span> : <></>}
         <div>
           <button>Salvar Alterações</button>
-          <button>Excluir Contato</button>
+          <button onClick={() => deleteContact(contact?.id)}>
+            Excluir Contato
+          </button>
         </div>
       </Form>
     </ModalMain>

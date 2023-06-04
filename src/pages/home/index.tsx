@@ -10,13 +10,13 @@ import { tUserReponse } from "../../interfaces/userInterfaces";
 
 export const HomePage = () => {
   const { user } = useContext(UserContext);
-  const { contacts } = useContext(ContactsContext);
-  const [modalOn, setModalOn] = useState(false);
+  const { contacts, modalOn, setModalOn } = useContext(ContactsContext);
   const [style, setStyle] = useState("");
   const [info, setInfo] = useState<tContactReponse | tUserReponse | null>(null);
   useEffect(() => {
     contacts;
-  }, [contacts?.length, contacts]);
+    user;
+  }, [contacts, user]);
 
   const activeModal = (
     style: string,

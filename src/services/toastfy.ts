@@ -20,6 +20,8 @@ export const notifyError = (message: string) => {
   }
   if (message === "Invalid credentials") {
     msg = "Email ou Senha Incorretos";
+  } else {
+    msg = message;
   }
   toast.error(`${msg}`, {
     position: "top-left",

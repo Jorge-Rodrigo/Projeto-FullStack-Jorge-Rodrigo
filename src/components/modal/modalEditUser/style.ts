@@ -41,6 +41,24 @@ export const ModalMain = styled.main`
     }
   }
   form {
+    display: flex;
+    flex-direction: column;
+    h3 {
+      text-align: center;
+      color: var(--color-blue3);
+      font-size: 25px;
+      padding: 18px 0;
+    }
+    p {
+      align-self: center;
+      text-align: center;
+      color: var(--color-white);
+      font-size: 20px;
+      padding: 8px 0;
+      border: 3px solid var(--color-blue3);
+      width: 50%;
+      border-radius: 19px;
+    }
     span {
       color: var(--color-red);
       display: flex;

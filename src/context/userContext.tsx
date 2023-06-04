@@ -39,7 +39,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
     }
 
     getUser();
-  }, [user, token]);
+  }, [token]);
 
   async function login(dataItem: tUserLogin) {
     try {
@@ -68,7 +68,7 @@ export const UserProvider = ({ children }: iUserContextProps) => {
 
   return (
     <UserContext.Provider
-      value={{ user, register, login, navigate, loadingPage }}
+      value={{ user, register, login, navigate, loadingPage, setUser }}
     >
       {children}
     </UserContext.Provider>

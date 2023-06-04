@@ -5,11 +5,13 @@ import { tContactUpdate } from "../../../interfaces/contactsInterface";
 import { updateContactSchema } from "../../../schemas/contactSchema";
 import Form from "../../forms";
 import Input from "../../input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ModalMain } from "./style";
+import { ContactsContext } from "../../../context/contactsContext";
 
 export const ModalEditUser = ({ user }: ModalEditUserProps) => {
   const [editMode, setEditMode] = useState(false);
+  const { navigate, editUser, deleteUser } = useContext(ContactsContext);
 
   const {
     register,
@@ -21,9 +23,15 @@ export const ModalEditUser = ({ user }: ModalEditUserProps) => {
   });
 
   const onHandleSubmit: SubmitHandler<tContactUpdate> = (data) => {
-    console.log(data);
+    editUser(data);
     reset();
     setEditMode(false);
+  };
+
+  const logout = () => {
+    localStorage.clear();
+    navigate("/");
+    window.location.reload();
   };
   return (
     <ModalMain>
@@ -40,15 +48,8 @@ export const ModalEditUser = ({ user }: ModalEditUserProps) => {
             register={register("fullName")}
           />
           {errors.fullName ? <span>{errors.fullName.message}</span> : <></>}
-          <Input
-            label={"Email"}
-            type={"email"}
-            placeholder={"Digite o email"}
-            id={"email"}
-            value={user?.email}
-            register={register("email")}
-          />
-          {errors.email ? <span>{errors.email.message}</span> : <></>}
+          <h3>Email</h3>
+          <p>{user?.email}</p>
           <Input
             label={"Numero de Telefone"}
             type={"text"}
@@ -64,7 +65,7 @@ export const ModalEditUser = ({ user }: ModalEditUserProps) => {
           )}
           <div>
             <button>Salvar Alterações</button>
-            <button>Excluir Contato</button>
+            <button onClick={() => deleteUser()}>Excluir Conta</button>
           </div>
         </Form>
       )}
@@ -77,6 +78,7 @@ export const ModalEditUser = ({ user }: ModalEditUserProps) => {
           <p>{user?.phoneNumber}</p>
 
           <button onClick={() => setEditMode(true)}>Editar</button>
+          <button onClick={() => logout()}>Logout</button>
         </section>
       )}
     </ModalMain>

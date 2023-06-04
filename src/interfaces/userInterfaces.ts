@@ -12,6 +12,17 @@ export interface iUserContext {
   login: (dataItem: tUserLogin) => void;
   navigate: NavigateFunction;
   loadingPage: boolean;
+  setUser: React.Dispatch<
+    React.SetStateAction<{
+      id: number;
+      fullName: string;
+      email: string;
+      createdAt: string;
+      updatedAt: string;
+      phoneNumber: string;
+      deletedAt: string | null;
+    } | null>
+  >;
 }
 
 export interface iUserFormRequest {
