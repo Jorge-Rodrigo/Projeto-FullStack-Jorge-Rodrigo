@@ -13,3 +13,8 @@ export interface iFormProps {
   children: React.ReactNode;
   sub: (data: any) => void;
 }
+
+export interface iModalProps {
+  setOff: React.Dispatch<React.SetStateAction<boolean>>;
+  style: string;
+}
